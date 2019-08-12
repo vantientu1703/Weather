@@ -26,6 +26,10 @@ class SliderMenuViewController: HKSlideMenu3DController {
         }
         self.enablePan = false
     }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
 }
 
 extension SliderMenuViewController: MenuViewControllerDelegate {

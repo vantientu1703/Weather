@@ -10,18 +10,9 @@ import UIKit
 
 class AddressCellModel {
     fileprivate var address: Address?
-    fileprivate var climate: Climate?
     
-    init() {
-        
-    }
-    
-    func setAddress(_ address: Address?) {
+    init(_ address: Address? = nil) {
         self.address = address
-    }
-    
-    func setClimate(_ climate: Climate?) {
-        self.climate = climate
     }
     
     var placeName: String? {
@@ -29,9 +20,9 @@ class AddressCellModel {
     }
     
     var temp: String? {
-        guard let tmpl = self.climate?.main?.temp else {
+        guard let tmpl = self.address?.climate?.main?.temp else {
             return nil
         }
-        return String(format: "%0.1f", (tmpl - 273))
+        return String(format: "%0.0f", (tmpl - 273))
     }
 }

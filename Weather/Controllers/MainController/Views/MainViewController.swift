@@ -112,7 +112,7 @@ extension MainViewController: CustomScrollViewDataSource {
 extension MainViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        self.viewModel.searchAddress(searchText)
+        self.searchPlacesViewController?.searchAddress(text: searchText)
     }
 }
 
@@ -122,13 +122,5 @@ extension MainViewController: MainViewModelDelegate {
             return
         }
         cell.configCell(model: self.viewModel.configCell(at: index))
-    }
-    
-    func didSearchAddressSuccess(_ arrayAddress: [Address]) {
-        self.searchPlacesViewController?.reloadData(arrayAddress)
-    }
-    
-    func didSearchAddressFail() {
-        
     }
 }

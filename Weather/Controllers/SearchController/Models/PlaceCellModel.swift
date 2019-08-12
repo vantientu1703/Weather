@@ -12,11 +12,7 @@ class PlaceCellModel {
     
     fileprivate var place: Address?
     
-    init() {
-        
-    }
-    
-    init(address: Address?) {
+    init(_ address: Address? = nil) {
         self.place = address
     }
     

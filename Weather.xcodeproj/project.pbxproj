@@ -356,7 +356,6 @@
 			isa = PBXGroup;
 			children = (
 				8417460A23016BA6005DF5CB /* Models */,
-				8417460923016B9E005DF5CB /* ViewModels */,
 				8417460123016921005DF5CB /* Cells */,
 				8417460023016836005DF5CB /* Views */,
 			);
@@ -389,18 +388,11 @@
 			path = SliderMenuViewcontroller;
 			sourceTree = "<group>";
 		};
-		8417460923016B9E005DF5CB /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				8417460B23016BB2005DF5CB /* MenuViewModel.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
 		8417460A23016BA6005DF5CB /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				8417460D23016BE1005DF5CB /* MenuCellModel.swift */,
+				8417460B23016BB2005DF5CB /* MenuViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";

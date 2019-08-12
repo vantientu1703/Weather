@@ -11,12 +11,8 @@ import UIKit
 class MenuCellModel {
     
     fileprivate var address: Address?
-    
-    init() {
-        
-    }
-    
-    init(address: Address?) {
+
+    init(_ address: Address? = nil) {
         self.address = address
     }
     

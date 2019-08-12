@@ -21,15 +21,19 @@ class SearchPlacesViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         self.registerCell()
+        self.configViewModel()
+    }
+    
+    private func configViewModel() {
+        self.viewModel.delegate = self
     }
     
     private func registerCell() {
         self.tableView.registerCellByNib(PlaceCell.self)
     }
     
-    func reloadData(_ arrayAddress: [Address]) {
-        self.viewModel.arrayAddress = arrayAddress
-        self.tableView.reloadData()
+    func searchAddress(text: String) {
+        self.viewModel.searchAddress(text)
     }
 }
 
@@ -55,5 +59,15 @@ extension SearchPlacesViewController: UITableViewDataSource {
         }
         cell.configCell(self.viewModel.configCell(at: indexPath))
         return cell
+    }
+}
+
+extension SearchPlacesViewController: SearchViewModelDelegate {
+    func didSearchAddressSuccess() {
+        self.tableView.reloadData()
+    }
+    
+    func didSearchAddressFail() {
+        
     }
 }

@@ -22,7 +22,7 @@ class MenuViewModel {
     
     func configCell(at indexPath: IndexPath) -> MenuCellModel {
         let address = self.address(at: indexPath)
-        return MenuCellModel(address: address)
+        return MenuCellModel(address)
     }
     
     func address(at indexPath: IndexPath) -> Address? {
