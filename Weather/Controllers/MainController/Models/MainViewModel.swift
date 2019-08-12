@@ -87,6 +87,11 @@ class MainViewModel: NSObject {
         self.arrayAddress.append(address)
     }
     
+    func removeAddress(at index: Int) {
+        guard index < self.arrayAddress.count else { return }
+        self.arrayAddress.remove(at: index)
+    }
+    
     func configCell(at index: Int) -> AddressCellModel {
         let address = self.address(at: index)
         let model = AddressCellModel()

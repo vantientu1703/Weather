@@ -11,7 +11,7 @@ import RealmSwift
 import Realm
 
 class RealManager {
-    static let realmVersion: UInt64 = 1
+    static let realmVersion: UInt64 = 2
     static func config() {
         let config = Realm.Configuration(
             // Set the new schema version. This must be greater than the previously used

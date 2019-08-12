@@ -16,7 +16,7 @@ let GOOGLE_API_KEY = "AIzaSyDI88tQyMVOMmRQ6O6XjlBukKiRZa7KpYI"
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var slideMenuVC = HKSlideMenu3DController()
+    var slideMenuVC = SliderMenuViewController()
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -26,13 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.shared.isStatusBarHidden = true
         
         self.slideMenuVC.view.frame = UIScreen.main.bounds
-        self.slideMenuVC.menuViewController = MenuViewController.fromStoryboard(.menu)
-        if let controller = MainViewController.fromStoryboard(.main) {
-            self.slideMenuVC.mainViewController = controller
-            self.slideMenuVC.distanceOpenMenu = controller.view.frame.size.width - 100
-        }
-        self.slideMenuVC.enablePan = false
-        
         self.window?.rootViewController = self.slideMenuVC
         self.window?.makeKeyAndVisible()
         return true
@@ -58,9 +51,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
-    
-    static var delegate: AppDelegate? {
-        return UIApplication.shared.delegate as? AppDelegate
     }
 }

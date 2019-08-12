@@ -33,13 +33,11 @@ class RAddress: Object {
     }
     
     private func increaseId() -> Int {
-        do {
-            let realm = try Realm()
-            let objects = realm.objects(RAddress.self)
-            return objects.count
-        } catch {
-            return 0
+        let objects = RAddress.getAllAddress()
+        if let last = objects.last, let id = last.id {
+            return id + 1
         }
+        return 0
     }
     
     func add() {
@@ -48,6 +46,7 @@ class RAddress: Object {
             try realm.write {
                 self.id = RealmOptional(self.increaseId())
                 realm.add(self)
+                try realm.commitWrite()
             }
         } catch {
             print(error)
@@ -59,6 +58,7 @@ class RAddress: Object {
             let realm = try Realm()
             try realm.write {
                 realm.add(self, update: Realm.UpdatePolicy.modified)
+                try realm.commitWrite()
             }
         } catch {
             print(error)
@@ -67,9 +67,15 @@ class RAddress: Object {
     
     func delete() {
         do {
+
             let realm = try Realm()
-            try realm.write {
-                realm.delete(self)
+            guard let id = self.id.value else { return }
+            let objects = realm.objects(RAddress.self).filter("id == \(id)")
+            if objects.count > 0 {
+                try realm.write {
+                    realm.delete(objects.first!)
+                    try realm.commitWrite()
+                }
             }
         } catch {
             print(error)
@@ -79,7 +85,7 @@ class RAddress: Object {
     static func getAllAddress() -> [Address] {
         do {
             let realm = try Realm()
-            let objects = realm.objects(RAddress.self)
+            let objects = realm.objects(RAddress.self).sorted(byKeyPath: "id")
             var addrs: [Address] = []
             for r in objects {
                 addrs.append(r.toAddress())
@@ -95,8 +101,8 @@ class RAddress: Object {
         guard let placeId = placeId else { return nil }
         do {
             let realm = try Realm()
-            let objects = realm.objects(RAddress.self).filter("placeId == \(placeId)")
-            return objects.first?.toAddress()
+            let objects = realm.objects(RAddress.self).filter("placeId == '\(placeId)'")
+            return objects.last?.toAddress()
         } catch {
             print(error)
             return nil
