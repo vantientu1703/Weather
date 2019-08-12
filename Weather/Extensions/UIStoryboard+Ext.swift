@@ -15,6 +15,7 @@ extension UIStoryboard {
         case main
         case login
         case search
+        case menu
         
         var identifier: String {
             switch self {
@@ -24,6 +25,8 @@ extension UIStoryboard {
                 return "Login"
             case .search:
                 return "Search"
+            case .menu:
+                return "Menu"
             }
         }
     }

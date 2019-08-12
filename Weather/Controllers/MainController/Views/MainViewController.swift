@@ -63,6 +63,10 @@ extension MainViewController: CustomScrollViewDataSource {
                 guard let strongSelf = self else { return }
                 strongSelf.showSearchController()
             }
+            
+            addressCell.showOrHideMenu = {
+                AppDelegate.delegate?.slideMenuVC.toggleMenu()
+            }
             addressCell.configCell(model: self.viewModel.configCell(at: index))
             return addressCell
         }
@@ -76,10 +80,12 @@ extension MainViewController: CustomScrollViewDataSource {
         
         self.searchPlacesViewController?.didSelectPlace = {[weak self] address in
             guard let strongSelf = self else { return }
-            address?.toRAddress().add()
-            strongSelf.viewModel.getPlaces()
+            guard let address = address else { return }
+            address.toRAddress().add()
+            strongSelf.viewModel.append(address: address)
             strongSelf.scrollView.reloadData()
             DispatchQueue.main.async {
+                strongSelf.viewModel.getClimate(at: strongSelf.viewModel.arrayAddress.count - 1)
                 strongSelf.scrollView.scrollTo(at: strongSelf.viewModel.numberOfRows() - 1)
             }
         }

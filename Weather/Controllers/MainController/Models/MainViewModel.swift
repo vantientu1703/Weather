@@ -64,10 +64,14 @@ class MainViewModel: NSObject {
     
     func getClimates() {
         for index in 0..<self.arrayAddress.count {
-            self.loadQueue.addQueue(address: self.arrayAddress[index], at: index) {[weak self] in
-                guard let strongSelf = self else { return }
-                strongSelf.delegate?.didLoadClimateSuccess(at: index)
-            }
+            self.getClimate(at: index)
+        }
+    }
+    
+    func getClimate(at index: Int) {
+        self.loadQueue.addQueue(address: self.arrayAddress[index], at: index) {[weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.delegate?.didLoadClimateSuccess(at: index)
         }
     }
     
@@ -77,6 +81,10 @@ class MainViewModel: NSObject {
     
     func getPlaces() {
         self.arrayAddress = RAddress.getAllAddress()
+    }
+    
+    func append(address: Address) {
+        self.arrayAddress.append(address)
     }
     
     func configCell(at index: Int) -> AddressCellModel {

@@ -34,6 +34,8 @@
 		841299B522FAE64F0074C4B8 /* AddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841299B422FAE64F0074C4B8 /* AddressCell.swift */; };
 		841299B722FAE65A0074C4B8 /* AddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841299B622FAE65A0074C4B8 /* AddressCell.xib */; };
 		841299BA22FAE9E50074C4B8 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841299B922FAE9E50074C4B8 /* BaseViewController.swift */; };
+		841745FD23014350005DF5CB /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841745FC23014350005DF5CB /* MenuViewController.swift */; };
+		841745FF2301435C005DF5CB /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 841745FE2301435C005DF5CB /* Menu.storyboard */; };
 		84748CBC22FBF5CC00071D63 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84748CBB22FBF5CC00071D63 /* Address.swift */; };
 		84748CBE22FBF60400071D63 /* Climate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84748CBD22FBF60400071D63 /* Climate.swift */; };
 		84748CC222FBFB1F00071D63 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84748CC122FBFB1F00071D63 /* MainViewModel.swift */; };
@@ -101,6 +103,8 @@
 		841299B422FAE64F0074C4B8 /* AddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressCell.swift; sourceTree = "<group>"; };
 		841299B622FAE65A0074C4B8 /* AddressCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressCell.xib; sourceTree = "<group>"; };
 		841299B922FAE9E50074C4B8 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		841745FC23014350005DF5CB /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		841745FE2301435C005DF5CB /* Menu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
 		84748CBB22FBF5CC00071D63 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		84748CBD22FBF60400071D63 /* Climate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Climate.swift; sourceTree = "<group>"; };
 		84748CC122FBFB1F00071D63 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
@@ -247,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				841299B822FAE9D60074C4B8 /* BaseController */,
+				841745FB23014334005DF5CB /* MenuViewController */,
 				841299A922FADA840074C4B8 /* MainController */,
 				841299AA22FADA900074C4B8 /* SearchController */,
 			);
@@ -333,6 +338,15 @@
 				841299B922FAE9E50074C4B8 /* BaseViewController.swift */,
 			);
 			path = BaseController;
+			sourceTree = "<group>";
+		};
+		841745FB23014334005DF5CB /* MenuViewController */ = {
+			isa = PBXGroup;
+			children = (
+				841745FC23014350005DF5CB /* MenuViewController.swift */,
+				841745FE2301435C005DF5CB /* Menu.storyboard */,
+			);
+			path = MenuViewController;
 			sourceTree = "<group>";
 		};
 		84748CBA22FBF5B900071D63 /* Models */ = {
@@ -492,6 +506,7 @@
 				8412996922FAD7480074C4B8 /* LaunchScreen.storyboard in Resources */,
 				841299B722FAE65A0074C4B8 /* AddressCell.xib in Resources */,
 				8412996622FAD7480074C4B8 /* Assets.xcassets in Resources */,
+				841745FF2301435C005DF5CB /* Menu.storyboard in Resources */,
 				84748CD422FC1DEE00071D63 /* PlaceCell.xib in Resources */,
 				841299AF22FADAB10074C4B8 /* Search.storyboard in Resources */,
 				8412996422FAD7440074C4B8 /* Main.storyboard in Resources */,
@@ -527,6 +542,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-Weather/Pods-Weather-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SlideMenu3D/SlideMenu3D.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -534,6 +550,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SlideMenu3D.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -638,6 +655,7 @@
 				8412996122FAD7440074C4B8 /* MainViewController.swift in Sources */,
 				841299A422FAD7B70074C4B8 /* UICollectionViewCell+Ext.swift in Sources */,
 				841299A822FAD7B70074C4B8 /* UIView+Ext.swift in Sources */,
+				841745FD23014350005DF5CB /* MenuViewController.swift in Sources */,
 				840F9F8C22FD167B008F290A /* Networking.swift in Sources */,
 				841299A722FAD7B70074C4B8 /* UIViewController+Ext.swift in Sources */,
 				84748CC422FC1BF700071D63 /* SearchViewModel.swift in Sources */,

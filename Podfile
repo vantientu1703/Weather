@@ -8,6 +8,7 @@ target 'Weather' do
   # Pods for Weather
   pod 'RealmSwift', '~> 3.17'
   pod 'GooglePlaces', '~> 3.3'
+  pod 'SlideMenu3D'
   
   target 'WeatherTests' do
     inherit! :search_paths

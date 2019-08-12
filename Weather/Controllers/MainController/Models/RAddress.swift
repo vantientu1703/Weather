@@ -90,6 +90,18 @@ class RAddress: Object {
             return []
         }
     }
+    
+    static func getAddress(placeId: String?) -> Address? {
+        guard let placeId = placeId else { return nil }
+        do {
+            let realm = try Realm()
+            let objects = realm.objects(RAddress.self).filter("placeId == \(placeId)")
+            return objects.first?.toAddress()
+        } catch {
+            print(error)
+            return nil
+        }
+    }
 }
 
 extension Address {

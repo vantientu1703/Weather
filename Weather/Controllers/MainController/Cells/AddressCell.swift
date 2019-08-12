@@ -14,6 +14,7 @@ class AddressCell: UIView {
     @IBOutlet weak var tmpLabel: UILabel!
     
     var addAddressAction: (() -> ())?
+    var showOrHideMenu: (() -> ())?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,5 +27,10 @@ class AddressCell: UIView {
     
     @IBAction func addAddressAction(_ sender: Any) {
         self.addAddressAction?()
+    }
+    
+    
+    @IBAction func menuAction(_ sender: Any) {
+        self.showOrHideMenu?()
     }
 }
