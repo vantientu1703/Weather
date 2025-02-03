@@ -1,11 +1,3 @@
-//
-//  Networking.swift
-//  Weather
-//
-//  Created by Humaxvina on 8/9/19.
-//  Copyright © 2019 Humaxvina. All rights reserved.
-//
-
 import UIKit
 // appid = da959f4dc38bf1543c1f799b98310560
 let WEATHER_API = "https://api.openweathermap.org/data/2.5/weather?%@&appid=da959f4dc38bf1543c1f799b98310560"

@@ -1,10 +1,4 @@
-//
-//  WeatherTests.swift
-//  WeatherTests
-//
-//  Created by Humaxvina on 8/7/19.
-//  Copyright © 2019 Humaxvina. All rights reserved.
-//
+
 
 import XCTest
 @testable import Weather

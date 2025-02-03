@@ -1,14 +1,6 @@
-//
-//  RealManager.swift
-//  SYMC_Cradle
-//
-//  Created by Humaxvina on 4/11/19.
-//  Copyright © 2019 Humax. All rights reserved.
-//
-
 import UIKit
-import RealmSwift
 import Realm
+import RealmSwift
 
 class RealManager {
     static let realmVersion: UInt64 = 2

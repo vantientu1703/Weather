@@ -1,14 +1,6 @@
-//
-//  MainViewModel.swift
-//  Weather
-//
-//  Created by Humaxvina on 8/8/19.
-//  Copyright © 2019 Humaxvina. All rights reserved.
-//
-
 import UIKit
 
-protocol MainViewModelDelegate: class {
+protocol MainViewModelDelegate: AnyObject {
     func didLoadClimateSuccess(at index: Int)
 }
 

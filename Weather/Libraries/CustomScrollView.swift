@@ -1,11 +1,3 @@
-//
-//  CustomScrollView.swift
-//  ElderlySOS
-//
-//  Created by Humaxvina on 7/30/19.
-//  Copyright © 2019 Humax. All rights reserved.
-//
-
 import UIKit
 
 protocol CustomScrollViewDelegate: class {

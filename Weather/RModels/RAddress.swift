@@ -1,12 +1,5 @@
-//
-//  RAddress.swift
-//  Weather
-//
-//  Created by Humaxvina on 8/8/19.
-//  Copyright © 2019 Humaxvina. All rights reserved.
-//
-
 import UIKit
+import Realm
 import RealmSwift
 
 class RAddress: Object {

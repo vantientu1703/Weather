@@ -1,11 +1,3 @@
-//
-//  WeatherUITests.swift
-//  WeatherUITests
-//
-//  Created by Humaxvina on 8/7/19.
-//  Copyright © 2019 Humaxvina. All rights reserved.
-//
-
 import XCTest
 
 class WeatherUITests: XCTestCase {

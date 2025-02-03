@@ -1,15 +1,7 @@
-//
-//  SearchViewModel.swift
-//  Weather
-//
-//  Created by Humaxvina on 8/8/19.
-//  Copyright © 2019 Humaxvina. All rights reserved.
-//
-
 import UIKit
 import GooglePlaces
 
-protocol SearchViewModelDelegate: class {
+protocol SearchViewModelDelegate: AnyObject {
     func didSearchAddressSuccess()
     func didSearchAddressFail()
 }
@@ -21,10 +13,11 @@ class SearchViewModel {
     
     func searchAddress(_ text: String) {
         let client = GMSPlacesClient.shared()
-        client.autocompleteQuery(text, bounds: nil, filter: nil) {[weak self] (results, error) in
+        client.findAutocompletePredictions(fromQuery: text, filter: nil, sessionToken: nil) { [weak self] results, error in
             guard let strongSelf = self else {
                 return
             }
+            print("error \(error?.localizedDescription ?? "")")
             DispatchQueue.main.async {
                 guard let results = results else {
                     strongSelf.delegate?.didSearchAddressFail()

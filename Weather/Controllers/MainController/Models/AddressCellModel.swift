@@ -1,11 +1,3 @@
-//
-//  AddressCellModel.swift
-//  Weather
-//
-//  Created by Humaxvina on 8/9/19.
-//  Copyright © 2019 Humaxvina. All rights reserved.
-//
-
 import UIKit
 
 class AddressCellModel {

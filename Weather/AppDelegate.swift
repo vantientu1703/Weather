@@ -1,16 +1,9 @@
-//
-//  AppDelegate.swift
-//  Weather
-//
-//  Created by Humaxvina on 8/7/19.
-//  Copyright © 2019 Humaxvina. All rights reserved.
-//
-
 import UIKit
 import GooglePlaces
 import SlideMenu3D
 
-let GOOGLE_API_KEY = "AIzaSyDI88tQyMVOMmRQ6O6XjlBukKiRZa7KpYI"
+//let GOOGLE_API_KEY = "AIzaSyDI88tQyMVOMmRQ6O6XjlBukKiRZa7KpYI"
+let GOOGLE_API_KEY = "AIzaSyBgoNmKQUF5Q4iMcCn-x66l29n8rFTfOtA"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         RealManager.config()
         GMSPlacesClient.provideAPIKey(GOOGLE_API_KEY)
-        UIApplication.shared.isStatusBarHidden = true
+        //UIApplication.shared.isStatusBarHidden = true
         
         self.slideMenuVC.view.frame = UIScreen.main.bounds
         self.window?.rootViewController = self.slideMenuVC
