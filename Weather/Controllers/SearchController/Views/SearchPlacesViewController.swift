@@ -14,6 +14,8 @@ class SearchPlacesViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.registerCell()
         self.configViewModel()
+        tableView.isHidden = true
+        view.backgroundColor = .clear
     }
     
     private func configViewModel() {
@@ -26,6 +28,7 @@ class SearchPlacesViewController: UIViewController {
     
     func searchAddress(text: String) {
         self.viewModel.searchAddress(text)
+        self.dismiss(animated: false, completion: nil)
     }
 }
 
@@ -36,7 +39,7 @@ extension SearchPlacesViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        return UITableView.automaticDimension
     }
 }
 
@@ -56,7 +59,10 @@ extension SearchPlacesViewController: UITableViewDataSource {
 
 extension SearchPlacesViewController: SearchViewModelDelegate {
     func didSearchAddressSuccess() {
-        self.tableView.reloadData()
+//        self.tableView.reloadData()
+        if let last = self.viewModel.arrayAddress.last {
+            self.didSelectPlace?(last)
+        }
     }
     
     func didSearchAddressFail() {

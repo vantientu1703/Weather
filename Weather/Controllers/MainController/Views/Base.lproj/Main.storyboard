@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,12 +21,47 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tqu-QC-ISt">
+                                <rect key="frame" x="12" y="60" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="6b4-1v-dxz"/>
+                                    <constraint firstAttribute="height" constant="24" id="QZg-ZV-9f3"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="menu">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="menuAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bY0-E1-e5I"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="beg-pq-4a2">
+                                <rect key="frame" x="362" y="52" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="f33-0p-FfY"/>
+                                    <constraint firstAttribute="width" constant="40" id="oVe-Ad-IBf"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <imageReference key="image" image="plus" catalog="system" symbolScale="large"/>
+                                </state>
+                                <connections>
+                                    <action selector="addAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c8V-xc-olY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="beg-pq-4a2" secondAttribute="trailing" constant="12" id="NyM-RP-Xph"/>
                             <constraint firstAttribute="bottom" secondItem="ccH-cF-dCv" secondAttribute="bottom" id="WiG-Sh-dKq"/>
+                            <constraint firstItem="tqu-QC-ISt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="12" id="aw4-lJ-Pbx"/>
                             <constraint firstItem="ccH-cF-dCv" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="d6o-3F-VDX"/>
+                            <constraint firstItem="tqu-QC-ISt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="h9x-Wx-nTm"/>
+                            <constraint firstItem="beg-pq-4a2" firstAttribute="centerY" secondItem="tqu-QC-ISt" secondAttribute="centerY" id="mMC-TE-5x0"/>
                             <constraint firstItem="ccH-cF-dCv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pUb-Lj-Buj"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ccH-cF-dCv" secondAttribute="trailing" id="x0p-3M-ddI"/>
                         </constraints>
@@ -39,4 +75,8 @@
             <point key="canvasLocation" x="-25" y="-27"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="menu" width="100" height="100"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
+    </resources>
 </document>

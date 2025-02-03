@@ -16,7 +16,7 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QeK-Qe-mcP">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
                     <state key="normal" title="ADD DATA">
                         <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
@@ -26,7 +26,7 @@
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" systemColor="darkTextColor"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="QeK-Qe-mcP" secondAttribute="trailing" id="2GQ-Bq-i5F"/>
                 <constraint firstItem="QeK-Qe-mcP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="4rj-r0-CI7"/>
@@ -36,4 +36,9 @@
             <point key="canvasLocation" x="-25" y="-11"/>
         </view>
     </objects>
+    <resources>
+        <systemColor name="darkTextColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

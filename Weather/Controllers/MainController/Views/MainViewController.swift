@@ -1,6 +1,6 @@
 import UIKit
 
-protocol MainViewControllerDelegate: class {
+protocol MainViewControllerDelegate: AnyObject {
     func didTouchToggleMenu()
     func didAddAddress()
 }
@@ -25,6 +25,9 @@ class MainViewController: BaseViewController {
         self.viewModel.getPlaces()
         self.scrollView.reloadData()
         self.viewModel.getClimates()
+        if viewModel.arrayAddress.isEmpty {
+            showSearchController()
+        }
     }
     
     private func configView() {
@@ -40,6 +43,15 @@ class MainViewController: BaseViewController {
         self.viewModel.removeAddress(at: index)
         self.scrollView.reloadData()
     }
+    
+    @IBAction func menuAction(_ sender: Any) {
+        delegate?.didTouchToggleMenu()
+    }
+    
+    @IBAction func addAction(_ sender: Any) {
+        showSearchController()
+    }
+    
 }
 
 extension MainViewController: CustomScrollViewDelegate {
@@ -50,40 +62,31 @@ extension MainViewController: CustomScrollViewDelegate {
 
 extension MainViewController: CustomScrollViewDataSource {
     func numberOfRows() -> Int {
-        return self.viewModel.numberOfRows() + 1
+        return self.viewModel.numberOfRows()
     }
     
     func scrollView(_ scrollView: CustomScrollView, cellForRowAt index: Int) -> UIView {
         guard let addressCell = AddressCell.fromNib() else {
             return UIView()
         }
-        if index == self.viewModel.numberOfRows() {
-            if let noDataView = NoDataView.fromNib() {
-                noDataView.addAddressAction = { [weak self] in
-                    guard let strongSelf = self else { return }
-                    strongSelf.showSearchController()
-                }
-                return noDataView
-            }
-        } else {
-            addressCell.addAddressAction = { [weak self] in
-                guard let strongSelf = self else { return }
-                strongSelf.showSearchController()
-            }
-            
-            addressCell.showOrHideMenu = {[weak self] in
-                guard let strongSelf = self else { return }
-                strongSelf.delegate?.didTouchToggleMenu()
-            }
-            addressCell.configCell(model: self.viewModel.configCell(at: index))
-            return addressCell
+        
+        addressCell.addAddressAction = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.showSearchController()
         }
-        return UIView()
+        
+        addressCell.showOrHideMenu = {[weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.delegate?.didTouchToggleMenu()
+        }
+        addressCell.configCell(model: self.viewModel.configCell(at: index))
+        return addressCell
     }
     
     private func showSearchController() {
         let searchController = UISearchController(searchResultsController: self.searchPlacesViewController)
         searchController.searchBar.delegate = self
+        searchController.view.backgroundColor = .clear
         self.present(searchController, animated: true, completion: nil)
         
         self.searchPlacesViewController?.didSelectPlace = {[weak self] address in
@@ -103,8 +106,8 @@ extension MainViewController: CustomScrollViewDataSource {
 
 extension MainViewController: UISearchBarDelegate {
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        self.searchPlacesViewController?.searchAddress(text: searchText)
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.searchPlacesViewController?.searchAddress(text: searchBar.text ?? "")
     }
 }
 

@@ -20,7 +20,7 @@ class SliderMenuViewController: HKSlideMenu3DController {
     }
     
     override var prefersStatusBarHidden: Bool {
-        return false
+        return true
     }
 }
 

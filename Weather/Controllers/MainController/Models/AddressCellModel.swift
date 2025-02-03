@@ -17,4 +17,25 @@ class AddressCellModel {
         }
         return String(format: "%0.0f", (tmpl - 273))
     }
+    
+    var min: String? {
+        guard let tmpl = self.address?.climate?.main?.temp_min else {
+            return nil
+        }
+        return String(format: "%0.0f", (tmpl - 273))
+    }
+    
+    var max: String? {
+        guard let tmpl = self.address?.climate?.main?.temp_max else {
+            return nil
+        }
+        return String(format: "%0.0f", (tmpl - 273))
+    }
+    
+    var weather: String? {
+        guard let tmpl = self.address?.climate?.weather?.first?.main else {
+            return nil
+        }
+        return tmpl
+    }
 }
