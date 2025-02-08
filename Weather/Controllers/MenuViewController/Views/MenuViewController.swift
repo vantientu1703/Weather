@@ -36,14 +36,14 @@ extension MenuViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let contextItem = UIContextualAction(style: .destructive, title: "Delete") {[weak self] (contextualAction, view, boolValue) in
-            guard let strongSelf = self else { return }
+        let contextItem = UIContextualAction(style: .destructive, title: "Delete") { [weak self] (contextualAction, view, boolValue) in
+            guard let self = self else { return }
             
             boolValue(true) // pass true if you want the handler to allow the action
-            strongSelf.viewModel.removeAddress(at: indexPath)
+            self.viewModel.removeAddress(at: indexPath)
             tableView.reloadData()
-            DispatchQueue.main.async {
-                strongSelf.delegate?.didDeleteAddress(at: indexPath.row)
+            DispatchQueue.main.async { [weak self] in
+                self?.delegate?.didDeleteAddress(at: indexPath.row)
             }
         }
         let swipeActions = UISwipeActionsConfiguration(actions: [contextItem])
